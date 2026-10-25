@@ -36,7 +36,7 @@ void run_menu(void) {
         puts("5. Word of the Day");
         puts("6. Memorized words");
         puts("7. Dictionary statistics");
-        puts("8. Vocabulary games");
+        puts("8. Project Hangman");
         puts("9. Activity history");
         puts("0. Exit");
 
@@ -84,7 +84,7 @@ void run_menu(void) {
                 dictionary_stats();
                 break;
             case 8:
-                should_pause = games_menu();
+                run_hangman();
                 break;
             case 9:
                 show_activity_history();
@@ -112,9 +112,6 @@ void print_help(const char *program) {
            "  random                       Show a random word of the day\n"
            "  memorize WORD | memorized    Save or list memorized words\n"
            "  stats                        Show dictionary statistics\n"
-           "  games                        Open the vocabulary games menu\n"
-           "  missing-beginner             Play Missing Letters in Beginner mode\n"
-           "  missing-advanced             Play Missing Letters in Advanced mode\n"
            "  hangman                      Play Project Hangman\n"
            "  history                      Show activity history\n\n"
            "The interactive menu starts when no command is provided.\n", program);

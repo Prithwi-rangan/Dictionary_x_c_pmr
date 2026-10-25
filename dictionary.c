@@ -381,7 +381,7 @@ int dictionary_stats(void) {
     return 1;
 }
 
-/* Load a random sample of words for Missing Letters and Hangman. */
+/* Load a random sample of words for Project Hangman. */
 int dictionary_load_game_words(GameWord **words, size_t *count) {
     if (!words || !count) return 0;
     *words = NULL;

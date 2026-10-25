@@ -1,7 +1,7 @@
 #ifndef WORDMATE_H
 #define WORDMATE_H
 
-/* Shared declarations used by the menu, dictionary, learning, and games. */
+/* Shared declarations used by the menu, dictionary, learning, and Hangman. */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -41,12 +41,10 @@ int dictionary_load_game_words(GameWord **words, size_t *count);
 /* Memorized word list. */
 int memorize_word(const char *word);
 int show_memorized(void);
-/* Activity history and learning games. */
+/* Activity history and Project Hangman. */
 int save_activity_result(const char *activity, int correct, int total,
                          int points, unsigned long duration_seconds);
 int show_activity_history(void);
-int games_menu(void);
-int run_missing_letters(int advanced);
 int run_hangman(void);
 void run_menu(void);
 void print_help(const char *program);

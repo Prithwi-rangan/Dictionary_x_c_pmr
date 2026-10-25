@@ -16,10 +16,8 @@ make
 - Search a word. If it is misspelled, spelling suggestions appear automatically. A correctly spelled result can be added to Memorized Words.
 - Add, update, or delete a dictionary entry in `azdictionary.txt`.
 - Show a random Word of the Day or list saved memorized words.
-- Play Missing Letters in Beginner or Advanced mode, or play Hangman.
+- Play Project Hangman. Guess one letter at a time using the word's meaning as a clue.
 - View activity history.
-
-Missing Letters uses the word's meaning as a hint and gives five chances to guess the full word. Beginner hides one random letter. Advanced hides about half of the letters in random positions.
 
 ## Files
 
@@ -27,7 +25,7 @@ Missing Letters uses the word's meaning as a hint and gives five chances to gues
 - `main.c`, `menu.c`: command-line handling and the interactive menu
 - `dictionary.c`: direct search, suggestions, dictionary edits and random word selection
 - `learning.c`: memorized words
-- `games.c`: Missing Letters and Hangman
+- `games.c`: Project Hangman
 - `results.c`: activity history
 - `util.c`: input and word helpers
 - `wordmate.h`: shared types and function declarations
