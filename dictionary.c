@@ -212,7 +212,7 @@ static void suggest_spelling(const char *wanted) {
         return;
     }
 
-    puts("Did you mean:");
+    puts("Your Word can probably be: ");
     for (size_t i = 0; i < count; ++i) {
         printf("%zu. %s\n", i + 1, suggestions[i].word);
     }
