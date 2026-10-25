@@ -1,0 +1,6 @@
+.DS_Store
+*.o
+*.tmp
+wordmate
+data/activity_results.tsv
+data/memorized.txt

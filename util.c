@@ -1,0 +1,53 @@
+#include "wordmate.h"
+
+/* Remove either newline convention so prompts and file records compare cleanly. */
+void trim_newline(char *text) {
+    if (text) {
+        text[strcspn(text, "\r\n")] = '\0';
+    }
+}
+
+/* Read one fixed-size text line and discard any part that would overflow the buffer. */
+int read_file_line(FILE *file, char *buffer, size_t size) {
+    size_t length;
+    int character;
+
+    if (!file || !buffer || size == 0 || !fgets(buffer, (int)size, file)) {
+        return 0;
+    }
+    length = strlen(buffer);
+    if (length > 0 && buffer[length - 1] != '\n' && !feof(file)) {
+        /* Consume the rest of an overlong record before the next read begins. */
+        while ((character = fgetc(file)) != '\n' && character != EOF) {
+            /* Discard the rest of an overlong line. */
+        }
+    }
+    trim_newline(buffer);
+    return 1;
+}
+
+/* Trim surrounding whitespace and use lowercase for consistent word comparisons. */
+void normalize_word(char *word) {
+    size_t length;
+    size_t start = 0;
+
+    if (!word) {
+        return;
+    }
+    length = strlen(word);
+    while (start < length && isspace((unsigned char)word[start])) {
+        start++;
+    }
+    while (length > start && isspace((unsigned char)word[length - 1])) {
+        length--;
+    }
+    /* Move the trimmed text to the front before adding its new terminator. */
+    if (start > 0) {
+        memmove(word, word + start, length - start);
+    }
+    word[length - start] = '\0';
+    for (size_t i = 0; word[i]; ++i) {
+        word[i] = (char)tolower((unsigned char)word[i]);
+    }
+}
+
